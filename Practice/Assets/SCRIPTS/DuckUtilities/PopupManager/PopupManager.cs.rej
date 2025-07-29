@@ -1,0 +1,10 @@
+diff a/BF 23/Assets/DuckUtilities/PopupManager/PopupManager.cs b/BF 23/Assets/DuckUtilities/PopupManager/PopupManager.cs	(rejected hunks)
+@@ -358,7 +358,7 @@
+         [BoxGroup("Show")]
+         [Range(0, 5)]
+         public float showDelay;
+-
++        public Vector2 InitLocalPos; // Need for Move 
+         [BoxGroup("Show")] public GameObject popupGameObject;
+ 
+         [BoxGroup("Show")]

@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2161151766604437938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8946205143341144209}
+  - component: {fileID: 440333718330843090}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8946205143341144209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161151766604437938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440333718330843090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161151766604437938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fa44755e72e524ea82217e6fba76ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 1e540120a73b85340a6dfe3a00beb4e3, type: 3}
+  GameAudioMixer: {fileID: 24100000, guid: 11a876ead24e94141bbde3e3f67694b0, type: 2}
+  SFX: {fileID: -8444314306338168431, guid: 11a876ead24e94141bbde3e3f67694b0, type: 2}
+  Music: {fileID: 8630592054045165512, guid: 11a876ead24e94141bbde3e3f67694b0, type: 2}
+  audioPrefab: {fileID: 2819136093701511126, guid: 59397d9a308f5ce40b64448fcae1d281, type: 3}
+  defaultCapacity: 25
+  maxCapacity: 50
+  BGMs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BGMInGame: []
+  listSound:
+  - soundName: None
+    clip: {fileID: 0}
+  - soundName: UIClick
+    clip: {fileID: 8300000, guid: 5e4345a6730c6e24b8cd2a1948fc39ca, type: 3}
+  - soundName: StartUpGame
+    clip: {fileID: 8300000, guid: ef374b544b6947e4d8b12d5bfe50a37f, type: 3}
+  - soundName: Helicopter
+    clip: {fileID: 8300000, guid: 35f4f3b8eff2f584395218072c75ea6f, type: 3}
+  - soundName: PlayerShouting
+    clip: {fileID: 8300000, guid: 4c402edbacf0feb4980e72122a98bdbc, type: 3}
+  - soundName: PlayerScreaming
+    clip: {fileID: 8300000, guid: 102042aff46b7fd4d8d3ea962f7c8000, type: 3}
+  - soundName: BikeImpactWood
+    clip: {fileID: 8300000, guid: 036ebed1e09ba624fa90e0dda50bb88e, type: 3}
+  - soundName: TNT
+    clip: {fileID: 8300000, guid: bc4c397145c1e5b4ab56840cdb1a2c19, type: 3}
+  - soundName: PlayerYell
+    clip: {fileID: 8300000, guid: 3d61b4e90dab3914ba12855f60f1afb0, type: 3}
+  - soundName: PlayerLaugh
+    clip: {fileID: 8300000, guid: cb69999c1f4c0d74d95f0efe2f3bde31, type: 3}
+  - soundName: PlayerEcited
+    clip: {fileID: 8300000, guid: f9ce198ae51d40848813c709e0afc695, type: 3}
+  - soundName: PlayerAha
+    clip: {fileID: 8300000, guid: cafa014ad3ea7b745bb38dbb70eba28b, type: 3}
+  - soundName: PlayerAlright
+    clip: {fileID: 8300000, guid: 920e6da9798da2d4bbbf352699a55f8f, type: 3}
+  - soundName: PlayerAwesome
+    clip: {fileID: 8300000, guid: 7e9f244e35db2a047b1cc42676f59c09, type: 3}
+  - soundName: PlayerHit
+    clip: {fileID: 8300000, guid: aae29e0ea208f2942a653ad05d1c284c, type: 3}
+  - soundName: PlayerSurprise
+    clip: {fileID: 8300000, guid: 13624e70c57ed8f4ba837fe34e06dd93, type: 3}
+  - soundName: CheckPoint
+    clip: {fileID: 8300000, guid: 5c883debc3ffddb43b581d2f061d7309, type: 3}
+  - soundName: PopUI
+    clip: {fileID: 8300000, guid: dc485388482cacc4eb60cda691daef51, type: 3}
+  - soundName: Error
+    clip: {fileID: 8300000, guid: 3e14e50769a3c474e8be5e16786c939d, type: 3}
+  - soundName: Appear
+    clip: {fileID: 8300000, guid: 0ecb93c2bc6ae384c93fde3025bbc8f4, type: 3}
+  - soundName: MotorStartUp
+    clip: {fileID: 8300000, guid: 53530d35c57be6549bc40a1f40f771cd, type: 3}
+  - soundName: OpenBarrier
+    clip: {fileID: 8300000, guid: f6fe94ec3f1e0ef4e96976f8ec9fb2ca, type: 3}
+  - soundName: StartVoice
+    clip: {fileID: 8300000, guid: 87c484d64997320439490eeb23b7e83f, type: 3}
+  - soundName: FinishVoice
+    clip: {fileID: 8300000, guid: e8dc4156595c5fb4983ca5905d07b2c5, type: 3}
+  - soundName: BigPop
+    clip: {fileID: 8300000, guid: 2fdcdd34f4d6c7f48bb2cc2f1824a27e, type: 3}
+  - soundName: UiItemScale
+    clip: {fileID: 8300000, guid: 421e6fd32cea72546bd830a52aeca9c6, type: 3}
+  - soundName: TextUnlock
+    clip: {fileID: 8300000, guid: 71f420f9849da854f9db367940681cb4, type: 3}
+  - soundName: Coin
+    clip: {fileID: 8300000, guid: 19bdbe38898417040a4fe4b7f31f888b, type: 3}
+  - soundName: BodyHit
+    clip: {fileID: 8300000, guid: 56d5f5739f463c64daa704ff45d8227c, type: 3}
+  - soundName: CameraFlash
+    clip: {fileID: 8300000, guid: 6b02f37e71d43a648a0426a80b49a9be, type: 3}
+  - soundName: FireWork
+    clip: {fileID: 8300000, guid: 2ddc329970302ce4fb60d2805b09c3d0, type: 3}
+  - soundName: CroudCheer
+    clip: {fileID: 8300000, guid: 4083126659eedc24f9fde119e2ee17e1, type: 3}
+  - soundName: Card
+    clip: {fileID: 8300000, guid: 4ba3f70e7906baf46b6d2e80347d6dfa, type: 3}
+  - soundName: Teng
+    clip: {fileID: 8300000, guid: 27775f6aaa87d074fa61a35ede107359, type: 3}
+  - soundName: MoneyCounting
+    clip: {fileID: 8300000, guid: 28abd30fb80cea74d8686d5b156ac426, type: 3}
+  isFading: 0

@@ -1,0 +1,11 @@
+diff a/BF 23/Assets/DuckUtilities/PopupManager/PopupGUI.cs b/BF 23/Assets/DuckUtilities/PopupManager/PopupGUI.cs	(rejected hunks)
+@@ -39,6 +39,9 @@
+             foreach(Popups popups in Popups)
+             {
+                 if(popups.panelGO.name == "NewPanel") popups.panelGO.name = "--------------< " + popups.popupName + "Panel >--------------";
++                foreach(var ele in popups.popups) {
++                    ele.InitLocalPos = ele.popupGameObject.transform.localPosition;
++                }
+             }
+ 
+             string filePathAndName = "Assets/DuckUtilities/PopupManager/Popup" + canvasType + ".cs";
