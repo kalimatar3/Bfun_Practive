@@ -132,6 +132,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1855716654078492406, guid: 0431779e345aefe458f1dad7ba2e2965, type: 3}
   m_PrefabInstance: {fileID: 3728834311689635309}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &580817885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580817886}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &580817886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580817885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5887902199564710170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5887902199515532980}
     m_Modifications:
+    - target: {fileID: 2744742631828293272, guid: 610cdb1044f51e0439066a330e9d011c, type: 3}
+      propertyPath: MultiSceneCanvas.m_AssetGUID
+      value: 11e33ceff708e534b836d6f17e599323
+      objectReference: {fileID: 0}
     - target: {fileID: 7488304308702391778, guid: 610cdb1044f51e0439066a330e9d011c, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -409,6 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928cff0512a4dd0489c8fbe88ea5b2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurSceneData: {fileID: 0}
+  StateController: {fileID: 791300390}
 --- !u!1 &316837221035127597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4c16a905b5ef0428956198839fb297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelDataSO: {fileID: 11400000, guid: 92bd05533ef6dd74abc5f05edbf7d107, type: 2}
+  levelDynamicData:
+    levelDatas: []
 --- !u!4 &4881457429965836213
 Transform:
   m_ObjectHideFlags: 0
@@ -1732,6 +1772,7 @@ Transform:
   - {fileID: 9068976928898654189}
   - {fileID: 3450625240905655122}
   - {fileID: 8911452423504139295}
+  - {fileID: 580817886}
   m_Father: {fileID: 5887902199515532980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5887902199564710171

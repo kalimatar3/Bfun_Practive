@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5a12f688b8a98b248891cddde102f110
+  m_SerializeEntries:
+  - m_GUID: 11e33ceff708e534b836d6f17e599323
+    m_Address: Assets/Prefab/Addressables/UI/CanvasMultiScene.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23fccb3e244882a45a752a667dd4f100
+    m_Address: Assets/Prefab/Addressables/UI/Home/CanvasHome.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df8b32b280714904ab1853910a158006
+    m_Address: Assets/Prefab/Addressables/UI/Loading/Background.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e23eea79a7576e04b94bc597ec18cc39
+    m_Address: Assets/Prefab/Addressables/UI/Game/CanvasGame.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8cea29ad8faa87c49b7efa614cedaf38, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b33a9fb8c2799554a815d8cad35b4fb2, type: 2}
+    - {fileID: 11400000, guid: 6dda311d4428d3b4d80d6de2668005c4, type: 2}

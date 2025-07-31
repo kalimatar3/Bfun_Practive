@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -12,14 +13,9 @@ public abstract class BaseButton : baseUI
     {
         this.Permission = trigger;
     }
-    protected virtual void OnEnable()
+    protected override void OnEnable()
     {
-        this.Permission = true;
-    }
-    protected IEnumerator CrSetPermissionbytime(float time)
-    {
-        this.Permission = false;
-        yield return new WaitForSeconds(time);
+        base.OnEnable();
         this.Permission = true;
     }
     protected override void LoadUIComponents()
@@ -35,16 +31,4 @@ public abstract class BaseButton : baseUI
     {
         return Permission;
     }
-    public override void UpdateUI()
-    {
-    }
-#if UNITY_EDITOR
-    [Button(ButtonSizes.Large)]
-    [GUIColor(0,1,1)]
-    public void LOADUIsCOMPONENTS()
-    {
-        this.LoadUIComponents();
-    }
-#endif
-
 }

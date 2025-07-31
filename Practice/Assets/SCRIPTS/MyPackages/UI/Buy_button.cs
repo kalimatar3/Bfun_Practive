@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Buy_button : baseClickyButton
+public abstract class Buy_button : BaseClickyButton
 {
     public override void OnClick()
     {

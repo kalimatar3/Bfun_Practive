@@ -1,32 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
-using Sirenix.OdinInspector;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using Cinemachine;
-using Unity.VisualScripting;
-
-#if UNITY_EDITOR
-using UnityEditor.SceneManagement;
-#endif
-
 namespace DuckGame.Ultilities
 {
     public class GameManager : Singleton<GameManager>
     {
+        [HideInInspector] public SceneData CurSceneData;
+        public GameStateController StateController;
         public override void Awake()
         {
             base.Awake();
             DontDestroyOnLoad(this.gameObject);
         }
+        protected void Start()
+        {
+            this.LoadtoHome();
+        }
         public void LoadtoHome()
         {
-            SceneLoader.LoadScene((int)MyScene.Home,() => 
+            StateController.Statemachine.ChangeState((int)GameStateEnum.Loading);
+            SceneLoader.LoadScene("Home", () =>
             {
+                CurSceneData = HomeSceneData.Instance;
+                CurSceneData.Init();
+                StateController.Statemachine.ChangeState((int)GameStateEnum.Home);
             });
+        }
+        public void LoadtoGame()
+        {
+            
         }
     }
 }

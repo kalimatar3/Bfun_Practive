@@ -6,9 +6,13 @@ public class GameHomeState : GameState
     public override void EnterState()
     {
         base.EnterState();
-        Application.backgroundLoadingPriority = ThreadPriority.Normal;
-        //SPawn Vehicle;
-        GUIManager.Instance.CloseBackGround();
-        //PopupManager.Popup.ShowPopup(PopupHome.Main);
+        GUIManager.Instance.SwitchCanvas(GUITEMPLATE.Home, () =>
+        {
+            PopupManager.Popup.ShowPopup(PopupHome.Main);
+        });
+    }
+    public override void ExitState()
+    {
+        base.ExitState();
     }
 }

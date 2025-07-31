@@ -31,8 +31,8 @@ public class Statemachine<T> where T : State
     }
     protected virtual void ExitState(T State)
     {
-        Queue<T> StateTree = null;
-        T state = null;
+        Queue<T> StateTree = new Queue<T>();
+        T state = State;
         while (state != null)
         {
             StateTree.Enqueue(state);
@@ -42,8 +42,8 @@ public class Statemachine<T> where T : State
     }
     protected virtual void EnterState(T State)
     {
-        Stack<T> StateTree = null;
-        T state = null;
+        Stack<T> StateTree = new Stack<T>();
+        T state = State;
         while (state != null)
         {
             StateTree.Push(state);

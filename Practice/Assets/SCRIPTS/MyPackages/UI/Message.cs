@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Message : BaseTextUI
 {
+    protected Signal signal;
     [SerializeField] protected string insidemessage;
     public string message { get {return insidemessage;} 
         set { 
@@ -14,12 +15,24 @@ public class Message : BaseTextUI
         }
     public virtual void formatmessage() {
     }
-    protected virtual void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         this.formatmessage();
     }
     public override void ShowText()
     {
         this.text.text = insidemessage;
+    }
+
+    public override void UpdateVirtual(SignalMessage caller)
+    {
+    }
+    protected override List<Signal> UpdateVirtualCaller()
+    {
+        return new List<Signal>
+        {
+            signal
+        };
     }
 }

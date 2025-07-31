@@ -95,152 +95,145 @@ namespace DuckGame.Ultilities
     [HideMonoScript]
     public class DataManager : Singleton<DataManager>
     {
-//         [HideLabel]
-//         [PreviewField(100, ObjectFieldAlignment.Center)]
-//         public Sprite Icon;
+        //         [HideLabel]
+        //         [PreviewField(100, ObjectFieldAlignment.Center)]
+        //         public Sprite Icon;
 
-//         [TitleGroup("DATA MANAGER", "@DuckGame", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
-//         [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleUnlockExcelDatas vehicleUnlockData;
-//         public Dictionary<string, VehicleUnlockInfo> vehicleUnlockDics = new Dictionary<string, VehicleUnlockInfo>();
-//         [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleAdvanceUpgradeExcelDatas vehicleAdvanceUpgradeData;
-//         [SerializeField] ColorUpgrade[] allColors;
-//         [SerializeField] SkinUpgrade[] allSkins;
-//         public Dictionary<string, VehicleAdvanceUpgradeInfo> RimUpgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
-//         public Dictionary<string, VehicleAdvanceUpgradeInfo> TireUpgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
-//         public Dictionary<string, VehicleAdvanceUpgradeInfo> ColorupgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
-//         public Dictionary<string, VehicleAdvanceUpgradeInfo> SkinupgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
-//         public Dictionary<string, ColorUpgrade> allColorDics = new Dictionary<string, ColorUpgrade>();
-//         public Dictionary<string, SkinUpgrade> allSkinDics = new Dictionary<string, SkinUpgrade>();
-//         internal static bool ISCOMPLETEDLOADDATA;
-//         public LevelSO levelSO;
-//         public LevelDynamicData levelDynamicData;
-//         public VehicleDynamicData vehicleDynamicData;
-//         public CurrencyDynamicData CurrencyDatas;
-//         public OtherData OtherDatas;
-//         public Dictionary<string, VehicleData> vehicleDataDics = new Dictionary<string, VehicleData>();
-// #if UNITY_EDITOR
-//         [ButtonGroup]
-//         public void SAVEDATA()
-//         {
-//             this.SaveCurrencyDatas();
-//         }
-// #endif
-//         public override void Awake()
-//         {
-//             base.Awake();
-//             this.InitHardData();
-//             this.LoadData();
-//         }
+        //         [TitleGroup("DATA MANAGER", "@DuckGame", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        //         [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleUnlockExcelDatas vehicleUnlockData;
+        //         public Dictionary<string, VehicleUnlockInfo> vehicleUnlockDics = new Dictionary<string, VehicleUnlockInfo>();
+        //         [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleAdvanceUpgradeExcelDatas vehicleAdvanceUpgradeData;
+        //         [SerializeField] ColorUpgrade[] allColors;
+        //         [SerializeField] SkinUpgrade[] allSkins;
+        //         public Dictionary<string, VehicleAdvanceUpgradeInfo> RimUpgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
+        //         public Dictionary<string, VehicleAdvanceUpgradeInfo> TireUpgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
+        //         public Dictionary<string, VehicleAdvanceUpgradeInfo> ColorupgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
+        //         public Dictionary<string, VehicleAdvanceUpgradeInfo> SkinupgradeDics = new Dictionary<string, VehicleAdvanceUpgradeInfo>();
+        //         public Dictionary<string, ColorUpgrade> allColorDics = new Dictionary<string, ColorUpgrade>();
+        //         public Dictionary<string, SkinUpgrade> allSkinDics = new Dictionary<string, SkinUpgrade>();
+        //         internal static bool ISCOMPLETEDLOADDATA;
+        //         public LevelSO levelSO;
+        //         public LevelDynamicData levelDynamicData;
+        //         public VehicleDynamicData vehicleDynamicData;
+        //         public CurrencyDynamicData CurrencyDatas;
+        //         public OtherData OtherDatas;
+        //         public Dictionary<string, VehicleData> vehicleDataDics = new Dictionary<string, VehicleData>();
+        // #if UNITY_EDITOR
+        //         [ButtonGroup]
+        //         public void SAVEDATA()
+        //         {
+        //             this.SaveCurrencyDatas();
+        //         }
+        // #endif
+                public override void Awake()
+                {
+                    base.Awake();
+                    this.LoadData();
+                }
 
-//         private void InitHardData()
-//         {
-//             for (int i = 0; i < vehicleUnlockData.Sheet1.Count; i++)
-//             {
-//                 vehicleUnlockDics.Add(vehicleUnlockData.Sheet1[i].vehicleName, vehicleUnlockData.Sheet1[i]);
-//             }
-//             for (int i = 0; i < vehicleAdvanceUpgradeData.Sheet1.Count; i++)
-//             {
-//                 if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Rim)
-//                     RimUpgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
-//                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Tire)
-//                 {
-//                     TireUpgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
-//                 }
-//                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Color)
-//                 {
-//                     ColorupgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
-//                 }
-//                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Skin)
-//                 {
-//                     SkinupgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
-//                 }
-//             }
-//             for (int i = 0; i < allColors.Length; i++)
-//             {
-//                 allColorDics.Add(allColors[i].colorName, allColors[i]);
-//             }
-//             for (int i = 0; i < allSkins.Length; i++)
-//             {
-//                 allSkinDics.Add(allSkins[i].skinName, allSkins[i]);
-//             }
-//         }
-
-//         private void LoadData()
-//         {
-//             StartCoroutine(ILoadData());
-//         }
-//         private IEnumerator ILoadData()
-//         {
-//             ISCOMPLETEDLOADDATA = false;
-//             yield return new WaitUntil(() =>
-//             {
-//                 if (!LSManager.LoadDataFromJson<LevelDynamicData>(GameDatas.LevelDatas, InitLevelDatas(), out levelDynamicData)) return false;
-//                 if (!LSManager.LoadDataFromJson<VehicleDynamicData>(GameDatas.VehicleDatas, InitvehicleData(), out vehicleDynamicData)) return false;
-//                 if (!LSManager.LoadDataFromJsonConvert<CurrencyDynamicData>(GameDatas.DictionaryDatas, InitCurrencyDatas(), out CurrencyDatas)) return false;
-//                 if (!LSManager.LoadDataFromJsonConvert<OtherData>(GameDatas.OtherDatas, InitOtherDatas(), out OtherDatas)) return false;
-//                 return true;
-//             });
-//             foreach(var ele in vehicleDynamicData.OwnedVehicles) {
-//                 vehicleDataDics.Add(ele.vehicleName, ele);
-//             }
-//             ISCOMPLETEDLOADDATA = true;
-//         }
-//         protected OtherData InitOtherDatas() {
-//             OtherData otherData = new OtherData();
-//             otherData.Quality = 1;
-//             return otherData;
-//         }
-//         protected LevelDynamicData InitLevelDatas()
-//         {
-//             List<leveldata> levelDatas = new List<leveldata>();
-//             for (int i = 0; i < levelSO.hardLevelDatas.Count; i++)
-//             {
-//                 leveldata levelData = new leveldata(levelSO.hardLevelDatas[i]);
-//                 levelData.Locked = false;
-//                 levelDatas.Add(levelData);
-//             }
-//             LevelDynamicData levelDynamicData = new LevelDynamicData(levelDatas);
-//             return levelDynamicData;
-//         }
-//         protected CurrencyDynamicData InitCurrencyDatas()
-//         {
-//             CurrencyDynamicData currencyDynamicDatas = new CurrencyDynamicData();
-//             return currencyDynamicDatas;
-//         }
-//         protected VehicleDynamicData InitvehicleData()
-//         {
-//             List<VehicleData> listvehicledata = new List<VehicleData>();
-//             VehicleData vehicleData = new VehicleData(vehicleUnlockDics["2018_Nexis_V5_Vehicle"]);
-//             listvehicledata.Add(vehicleData);
-//             VehicleDynamicData vehicleDynamicData = new VehicleDynamicData(listvehicledata);
-//             vehicleDynamicData.CurVehicleData = vehicleData;
-//             return vehicleDynamicData;
-//         }
-//         public void SaveLevelDatas()
-//         {
-//             GameDatas.LevelDatas = LSManager.SaveGameby<LevelDynamicData>(levelDynamicData);
-//         }
-//         public void SaveVehicleDatas()
-//         {
-//             GameDatas.VehicleDatas = LSManager.SaveGameby<VehicleDynamicData>(vehicleDynamicData);
-//         }
-//         public void SaveOtherDatas()
-//         {
-//             GameDatas.OtherDatas = LSManager.SaveGameby<OtherData>(OtherDatas);
-//         }
-//         public void CollectVehicle(VehicleUnlockInfo vehicleUnlockInfo)
-//         {
-//             if (vehicleDataDics.ContainsKey(vehicleUnlockInfo.vehicleName)) return;
-//             VehicleData vehicleData = new VehicleData(vehicleUnlockInfo);
-//             vehicleDynamicData.OwnedVehicles.Add(vehicleData);
-//             vehicleDataDics.Add(vehicleUnlockInfo.vehicleName, vehicleData);
-//             SaveVehicleDatas();
-//         }
-//         public void SaveCurrencyDatas()
-//         {
-//             GameDatas.DictionaryDatas = LSManager.SaveGameConvertby<CurrencyDynamicData>(CurrencyDatas);
-//         }
-    //     [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleUnlockExcelDatas vehicleUnlockData;
+        //         private void InitHardData()
+        //         {
+        //             for (int i = 0; i < vehicleUnlockData.Sheet1.Count; i++)
+        //             {
+        //                 vehicleUnlockDics.Add(vehicleUnlockData.Sheet1[i].vehicleName, vehicleUnlockData.Sheet1[i]);
+        //             }
+        //             for (int i = 0; i < vehicleAdvanceUpgradeData.Sheet1.Count; i++)
+        //             {
+        //                 if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Rim)
+        //                     RimUpgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
+        //                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Tire)
+        //                 {
+        //                     TireUpgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
+        //                 }
+        //                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Color)
+        //                 {
+        //                     ColorupgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
+        //                 }
+        //                 else if (vehicleAdvanceUpgradeData.Sheet1[i].upgradeType == UPGRADETYPE.Skin)
+        //                 {
+        //                     SkinupgradeDics.Add(vehicleAdvanceUpgradeData.Sheet1[i].upgradeName, vehicleAdvanceUpgradeData.Sheet1[i]);
+        //                 }
+        //             }
+        //             for (int i = 0; i < allColors.Length; i++)
+        //             {
+        //                 allColorDics.Add(allColors[i].colorName, allColors[i]);
+        //             }
+        //             for (int i = 0; i < allSkins.Length; i++)
+        //             {
+        //                 allSkinDics.Add(allSkins[i].skinName, allSkins[i]);
+        //             }
+        //         }
+        [SerializeField] LevelDataSO levelDataSO;
+        public LevelDynamicData levelDynamicData;
+        private void LoadData()
+        {
+            StartCoroutine(ILoadData());
+        }
+        private IEnumerator ILoadData()
+        {
+            yield return new WaitUntil(() =>
+            {
+                if (!GameLS.LoadDataFromJson<LevelDynamicData>(GameDatas.LevelDatas, InitLevelDatas(), out levelDynamicData)) return false;
+                return true;
+            });
+        }
+        private LevelDynamicData InitLevelDatas()
+        {
+            LevelDynamicData levelDynamicData = new LevelDynamicData();
+            levelDynamicData.levelDatas = levelDataSO.levelDatas;
+            return levelDynamicData;
+        }
+        //         protected LevelDynamicData InitLevelDatas()
+        //         {
+        //             List<leveldata> levelDatas = new List<leveldata>();
+        //             for (int i = 0; i < levelSO.hardLevelDatas.Count; i++)
+        //             {
+        //                 leveldata levelData = new leveldata(levelSO.hardLevelDatas[i]);
+        //                 levelData.Locked = false;
+        //                 levelDatas.Add(levelData);
+        //             }
+        //             LevelDynamicData levelDynamicData = new LevelDynamicData(levelDatas);
+        //             return levelDynamicData;
+        //         }
+        //         protected CurrencyDynamicData InitCurrencyDatas()
+        //         {
+        //             CurrencyDynamicData currencyDynamicDatas = new CurrencyDynamicData();
+        //             return currencyDynamicDatas;
+        //         }
+        //         protected VehicleDynamicData InitvehicleData()
+        //         {
+        //             List<VehicleData> listvehicledata = new List<VehicleData>();
+        //             VehicleData vehicleData = new VehicleData(vehicleUnlockDics["2018_Nexis_V5_Vehicle"]);
+        //             listvehicledata.Add(vehicleData);
+        //             VehicleDynamicData vehicleDynamicData = new VehicleDynamicData(listvehicledata);
+        //             vehicleDynamicData.CurVehicleData = vehicleData;
+        //             return vehicleDynamicData;
+        //         }
+        //         public void SaveLevelDatas()
+        //         {
+        //             GameDatas.LevelDatas = LSManager.SaveGameby<LevelDynamicData>(levelDynamicData);
+        //         }
+        //         public void SaveVehicleDatas()
+        //         {
+        //             GameDatas.VehicleDatas = LSManager.SaveGameby<VehicleDynamicData>(vehicleDynamicData);
+        //         }
+        //         public void SaveOtherDatas()
+        //         {
+        //             GameDatas.OtherDatas = LSManager.SaveGameby<OtherData>(OtherDatas);
+        //         }
+        //         public void CollectVehicle(VehicleUnlockInfo vehicleUnlockInfo)
+        //         {
+        //             if (vehicleDataDics.ContainsKey(vehicleUnlockInfo.vehicleName)) return;
+        //             VehicleData vehicleData = new VehicleData(vehicleUnlockInfo);
+        //             vehicleDynamicData.OwnedVehicles.Add(vehicleData);
+        //             vehicleDataDics.Add(vehicleUnlockInfo.vehicleName, vehicleData);
+        //             SaveVehicleDatas();
+        //         }
+        //         public void SaveCurrencyDatas()
+        //         {
+        //             GameDatas.DictionaryDatas = LSManager.SaveGameConvertby<CurrencyDynamicData>(CurrencyDatas);
+        //         }
+        //     [InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleUnlockExcelDatas vehicleUnlockData;
         //     [ReadOnly][InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleAdvanceUpgradeExcelDatas vehicleAdvanceUpgradeData;
         //     [ReadOnly][InlineEditor(InlineEditorModes.GUIAndPreview)] public DailyLoginExcelDatas dailyLoginExcelDatas;
         //     [ReadOnly][InlineEditor(InlineEditorModes.GUIAndPreview)] public VehicleStatsExcelDatas vehicleStatsExcelDatas;

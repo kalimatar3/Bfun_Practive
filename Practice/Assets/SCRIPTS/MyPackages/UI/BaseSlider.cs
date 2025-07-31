@@ -18,14 +18,9 @@ public abstract class BaseSlider : baseUI
     {
         this.LoadSlider();
     }
-    public override void UpdateUI()
-    {
-        this.slider.value = value;
-    }
     public virtual void SetvalueSlider(float number)
     {
         this.value = number;
-        this.UpdateUI();
     }
     public virtual float getvalueSlider()
     {
