@@ -1,14 +1,16 @@
 #if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 [CustomEditor(typeof(baseUI), true)]
-public class BaseUIEditor : Editor
+public class BaseUIEditor : OdinEditor
 {
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-
         var ui = (baseUI)target;
-        EditorGUILayout.LabelField("Unique ID", ui.ID.ToString());
+        var UIid = ui.GetComponent<UniqueIDComponent>();
+        EditorGUILayout.LabelField("Unique ID", UIid.UniqueID.ToString());
+        base.OnInspectorGUI();
     }
+    
 }
 #endif

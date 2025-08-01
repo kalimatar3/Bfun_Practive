@@ -1,55 +1,58 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-
+[RequireComponent(typeof(UniqueIDComponent))]
 public abstract class baseUI : MyBehaviour
 {
-    [SerializeField, HideInInspector]
-    public long ID;
+    [HideInInspector] public UniqueIDComponent idComponent;
+    public int ID => idComponent != null ? idComponent.UniqueID : -1;
     protected List<Signal> callers;
+    private Dictionary<Signal, Action<SignalMessage>> _cachedHandlers = new Dictionary<Signal, Action<SignalMessage>>();
+    protected abstract void LoadUIComponents();
+
+    // Update virutal this UI
+    public abstract void UpdateVirtual(SignalMessage message);
+    
+    // Which Action UI can call UpdateVirtual Method to this UI
+    protected abstract List<Signal> Caller();
     protected override void Awake()
     {
-        this.callers = UpdateVirtualCaller();
+        this.callers = Caller();
         base.Awake();
+        if (idComponent == null)
+            idComponent = GetComponent<UniqueIDComponent>();
     }
-    protected abstract void LoadUIComponents();
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadUIComponents();
     }
-    // Update virutal this UI
-    public abstract void UpdateVirtual(SignalMessage caller);
-    protected void Testupdate(SignalMessage signalMessage)
-    {
-        if (ID == signalMessage.TARGETID)
-        {
-            UpdateVirtual(signalMessage);
-        }
-    }
-    // Which Action UI can call UpdateVirtual Method to this UI
-    protected abstract List<Signal> UpdateVirtualCaller();
-    private Dictionary<Signal, Action<SignalMessage>> _cachedHandlers = new Dictionary<Signal, Action<SignalMessage>>();
-
     protected virtual void SubscribeUpdateVirtualAcion()
     {
+        if (callers == null) return;
         foreach (var ele in callers)
         {
             if (_cachedHandlers.ContainsKey(ele)) continue;
-            Action<SignalMessage> handler = (SignalMessage) => { Testupdate(SignalMessage); };
+            Action<SignalMessage> handler = (SignalMessage) =>
+            {
+                SignalMessage signalMessage = SignalMessage;
+                signalMessage.ROOTID = this.ID;
+                UpdateVirtual(signalMessage);
+            };
             ele.AddListener(handler);
             _cachedHandlers[ele] = handler;
         }
     }
     protected virtual void UnSubscribeUpdateVirtualAcion()
     {
+        if (callers == null) return;
         foreach (var ele in callers)
         {
             if (_cachedHandlers.TryGetValue(ele, out var handler))
             {
-                ele.ClearAllListeners();
+                ele.RemoveListener(handler);
             }
         }
         _cachedHandlers.Clear();
@@ -65,10 +68,10 @@ public abstract class baseUI : MyBehaviour
     protected virtual void OnDestroy() {
         UnSubscribeUpdateVirtualAcion();
     }
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [Button(ButtonSizes.Large)]
     [GUIColor(0,1,1)]
-    public void LOADUICOMPONENTS()
+    public virtual void LOADUICOMPONENTS()
     {
         this.LoadUIComponents();
     }

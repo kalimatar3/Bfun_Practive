@@ -18,8 +18,9 @@ public abstract class BaseButton : baseUI
         base.OnEnable();
         this.Permission = true;
     }
-    protected override void LoadUIComponents()
+    protected override void LoadComponents()
     {
+        base.LoadComponents();
         this.Loadthisbutton();
     }
     protected void Loadthisbutton()

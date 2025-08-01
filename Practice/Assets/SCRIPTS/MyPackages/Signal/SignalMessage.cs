@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Signal
 {
- private event Action<SignalMessage> _event;
+    private event Action<SignalMessage> _event;
 
     private readonly List<Action<SignalMessage>> _listeners = new();
 
@@ -37,12 +38,13 @@ public class Signal
             _event -= callback;
         }
         _listeners.Clear();
-    }}
+    }
+}
+[Serializable]
 public struct SignalMessage
 {
-    public long TARGETID;
-    public long ROOTID;
+    [SerializeField,HideInInspector] public int TARGETID;
+   [SerializeField,HideInInspector]  public int ROOTID;
     public SignalType Type;
-    public object Payload;
 }
-public enum SignalType { Refresh, Reset, FadeIn, FadeOut }
+public enum SignalType { None,Refresh, Reset, FadeIn, FadeOut,Rotate,Move }

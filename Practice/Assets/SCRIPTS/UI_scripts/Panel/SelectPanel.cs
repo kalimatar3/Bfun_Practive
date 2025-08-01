@@ -8,12 +8,18 @@ using UnityEngine.UI;
 public class SelectPanel : Basepanel
 {
     [SerializeField] protected Transform TransformButonHolder;
-    [SerializeField] protected List<SelectButton> listbuttons;
+    [SerializeField] protected List<ChangeColor_button> listbuttons;
     [SerializeField] protected Image Back;
     protected override void LoadUIComponents()
     {
+        if (listbuttons.Count > 0) listbuttons.Clear();
+        foreach (Transform ele in TransformButonHolder)
+        {
+            listbuttons.Add(ele.GetComponent<ChangeColor_button>());
+        }
+        Back = GetComponent<Image>();
     }
-    protected override List<Signal> UpdateVirtualCaller()
+    protected override List<Signal> Caller()
     {
         List<Signal> actionableUIs = new List<Signal>();
         foreach (var ele in listbuttons)
@@ -40,22 +46,10 @@ public class SelectPanel : Basepanel
     {
         base.OnEnable();
         this.FetchingData();
-        this.Testupdate(new SignalMessage());
     }
 
     public override void UpdateVirtual(SignalMessage caller)
     {
         TweenImageToBlack();
-        foreach (var ele in listbuttons)
-        {
-            if (ele.ID == caller.ROOTID)
-            {
-                ele.Active();
-            }
-            else{
-                ele.InActive();
-            }
-        }
-
     }
 }

@@ -12,13 +12,17 @@ public class DuckButton : BaseClickyButton
 
     public override void UpdateVirtual(SignalMessage caller)
     {
+        this.gameObject.SetActive(false);
     }
 
-    protected override List<Signal> UpdateVirtualCaller()
+    protected override List<Signal> Caller()
     {
         return new List<Signal>()
         {
             this.buttonSignal
         };
+    }
+    protected override void LoadUIComponents()
+    {
     }
 }

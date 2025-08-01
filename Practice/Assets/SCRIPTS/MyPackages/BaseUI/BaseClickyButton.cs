@@ -5,10 +5,11 @@ using UnityEngine;
 
 public abstract class BaseClickyButton : BaseButton
 {
-    public Signal buttonSignal =  new Signal();
-    protected override void LoadUIComponents()
+    public Signal buttonSignal = new Signal();
+    public SignalMessage DefaultMessage;
+    protected override void LoadComponents()
     {
-        base.LoadUIComponents();
+        base.LoadComponents();
         this.AddActButton();
     }
     protected void AddActButton()
@@ -20,12 +21,7 @@ public abstract class BaseClickyButton : BaseButton
     {
         if (!CanAct()) return;
         this.OnClick();
-        buttonSignal.Send(new SignalMessage());
+        buttonSignal.Send(DefaultMessage);
     }
     public abstract void OnClick();
-
-    GameObject GetRoot()
-    {
-        return this.gameObject;
-    }
 }

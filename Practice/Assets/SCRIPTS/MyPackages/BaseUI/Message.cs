@@ -28,7 +28,7 @@ public class Message : BaseTextUI
     public override void UpdateVirtual(SignalMessage caller)
     {
     }
-    protected override List<Signal> UpdateVirtualCaller()
+    protected override List<Signal> Caller()
     {
         return new List<Signal>
         {

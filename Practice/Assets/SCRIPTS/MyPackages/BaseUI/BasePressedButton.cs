@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class basePressedButton : BaseButton,IPointerDownHandler, IPointerUpHandler
+public abstract class BasePressedButton : BaseButton,IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] protected bool isHolding;
     private Coroutine holdingCoroutine;
