@@ -47,4 +47,4 @@ public struct SignalMessage
    [SerializeField,HideInInspector]  public int ROOTID;
     public SignalType Type;
 }
-public enum SignalType { None,Refresh, Reset, FadeIn, FadeOut,Rotate,Move }
+public enum SignalType { None,Refresh, Reset, FadeIn, FadeOut,Command1,Command2 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move_button : BaseClickyButton
+public class Button2 : BaseClickyButton
 {
     public override void OnClick()
     {

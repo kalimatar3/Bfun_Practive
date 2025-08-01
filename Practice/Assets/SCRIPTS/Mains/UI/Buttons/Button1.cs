@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate_button : BaseClickyButton
+public class Button1 : BaseClickyButton
 {
     public override void OnClick()
     {

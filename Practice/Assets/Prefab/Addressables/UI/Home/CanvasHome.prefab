@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -77722
+  uniqueID: -89130
   lastInstanceID: 30020
 --- !u!114 &8893824742168577828
 MonoBehaviour:
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -77764
+  uniqueID: -89172
   lastInstanceID: 0
 --- !u!114 &3931336737382016374
 MonoBehaviour:
@@ -1066,7 +1066,7 @@ GameObject:
   - component: {fileID: 1545945543233111230}
   - component: {fileID: 6483825267418531737}
   m_Layer: 5
-  m_Name: Move_button
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -77800
+  uniqueID: -89208
   lastInstanceID: 0
 --- !u!114 &6483825267418531737
 MonoBehaviour:
@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -77750
+  uniqueID: -89158
   lastInstanceID: 0
 --- !u!114 &6334355063134828198
 MonoBehaviour:
@@ -1657,7 +1657,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROTATE
+  m_Text: Button 1
 --- !u!1 &6736808756759824718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 327765673119512694}
   - component: {fileID: 926671870114560791}
   m_Layer: 5
-  m_Name: Rotate_button
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -77778
+  uniqueID: -89186
   lastInstanceID: 0
 --- !u!114 &926671870114560791
 MonoBehaviour:
@@ -2074,7 +2074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MOVE
+  m_Text: Button 2
 --- !u!1001 &5289790551011209857
 PrefabInstance:
   m_ObjectHideFlags: 0
