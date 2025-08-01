@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class baseUI : MyBehaviour
 {
-    // Update virutal this UI
+    [SerializeField, HideInInspector]
     public long ID;
+    protected List<Signal> callers;
     protected override void Awake()
     {
-        ID = UIIDManager.GetUIID();
+        this.callers = UpdateVirtualCaller();
         base.Awake();
     }
     protected abstract void LoadUIComponents();
@@ -18,7 +20,7 @@ public abstract class baseUI : MyBehaviour
         base.LoadComponents();
         this.LoadUIComponents();
     }
-    // UpdateUI of panel will be called in Enable
+    // Update virutal this UI
     public abstract void UpdateVirtual(SignalMessage caller);
     protected void Testupdate(SignalMessage signalMessage)
     {
@@ -29,24 +31,25 @@ public abstract class baseUI : MyBehaviour
     }
     // Which Action UI can call UpdateVirtual Method to this UI
     protected abstract List<Signal> UpdateVirtualCaller();
-    private Dictionary<Signal, Action<SignalMessage>> _cachedHandlers = new();
+    private Dictionary<Signal, Action<SignalMessage>> _cachedHandlers = new Dictionary<Signal, Action<SignalMessage>>();
 
     protected virtual void SubscribeUpdateVirtualAcion()
     {
-        foreach (var ele in UpdateVirtualCaller())
+        foreach (var ele in callers)
         {
+            if (_cachedHandlers.ContainsKey(ele)) continue;
             Action<SignalMessage> handler = (SignalMessage) => { Testupdate(SignalMessage); };
-            ele.Event += handler;
+            ele.AddListener(handler);
             _cachedHandlers[ele] = handler;
         }
     }
     protected virtual void UnSubscribeUpdateVirtualAcion()
     {
-        foreach (var ele in UpdateVirtualCaller())
+        foreach (var ele in callers)
         {
             if (_cachedHandlers.TryGetValue(ele, out var handler))
             {
-                ele.Event -= handler;
+                ele.ClearAllListeners();
             }
         }
         _cachedHandlers.Clear();
@@ -59,7 +62,9 @@ public abstract class baseUI : MyBehaviour
     {
         this.UnSubscribeUpdateVirtualAcion();
     }
-
+    protected virtual void OnDestroy() {
+        UnSubscribeUpdateVirtualAcion();
+    }
     #if UNITY_EDITOR
     [Button(ButtonSizes.Large)]
     [GUIColor(0,1,1)]

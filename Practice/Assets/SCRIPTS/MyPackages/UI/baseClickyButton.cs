@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class BaseClickyButton : BaseButton
 {
-    public Signal buttonSignal;
+    public Signal buttonSignal =  new Signal();
     protected override void LoadUIComponents()
     {
         base.LoadUIComponents();

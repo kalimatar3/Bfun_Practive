@@ -7,7 +7,7 @@ public abstract class basePressedButton : BaseButton,IPointerDownHandler, IPoint
 {
     [SerializeField] protected bool isHolding;
     private Coroutine holdingCoroutine;
-    public SignalContainer Signal;
+    public Signal Signal;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -39,7 +39,7 @@ public abstract class basePressedButton : BaseButton,IPointerDownHandler, IPoint
         while (isHolding)
         {
             OnHolding();
-            Signal.Send(null);
+            Signal.Send(new SignalMessage());
             yield return null; // mỗi frame gọi một lần
         }
     }
