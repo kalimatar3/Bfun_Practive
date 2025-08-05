@@ -11,6 +11,5 @@ public class BaseUIEditor : OdinEditor
         EditorGUILayout.LabelField("Unique ID", UIid.UniqueID.ToString());
         base.OnInspectorGUI();
     }
-    
 }
 #endif

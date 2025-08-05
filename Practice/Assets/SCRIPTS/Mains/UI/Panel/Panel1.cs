@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-
 public class Panel1 : Basepanel
 {
     public List<BaseClickyButton> buttons;
@@ -16,10 +14,10 @@ public class Panel1 : Basepanel
         switch (message.Type)
         {
             case SignalType.Command1:
-                rect.DORotate(new Vector3(0, 0,this.transform.rotation.eulerAngles.z +  360), 1f, RotateMode.FastBeyond360)
+                rect.DORotate(new Vector3(0, 0, this.transform.rotation.eulerAngles.z + 360), 1f, RotateMode.FastBeyond360)
                     .SetLoops(-1)
                     .SetEase(Ease.Linear);
-            break;
+                break;
             case SignalType.Command2:
                 this.transform.DOMoveX(this.transform.position.x + 5, 1f).SetLoops(-1, LoopType.Yoyo);
                 break;
@@ -34,5 +32,4 @@ public class Panel1 : Basepanel
         }
         return signals;
     }
-
 }
