@@ -32,10 +32,10 @@ public class BasePanelEditor : OdinEditor
         {
             foreach (var el in plots)
             {
-                if (!seenSignals.Add(el.signalType))
+                if (!seenSignals.Add(el.PlotType))
                 {
-                    if (!duplicates.Contains(el.signalType))
-                        duplicates.Add(el.signalType);
+                    if (!duplicates.Contains(el.PlotType))
+                        duplicates.Add(el.PlotType);
                 }
             }
 
@@ -46,19 +46,33 @@ public class BasePanelEditor : OdinEditor
         }
 
         // Vẽ phần mặc định của Odin
-        base.OnInspectorGUI();
 
         GUILayout.Space(10);
 
         // ▶ Preview
         if (GUILayout.Button("▶ Preview", GUILayout.Height(30)))
         {
-            if (activePreviews.TryGetValue(ui, out var oldTween) && oldTween.IsActive())
+
+            DOTweenEditorPreview.Stop();
+            if (activePreviews.TryGetValue(ui, out var previewTween) && previewTween.IsActive())
             {
-                oldTween.Kill();
-                Debug.Log("Killed previous tween.");
+                previewTween.Kill();
+                activePreviews.Remove(ui);
             }
 
+            if (_hasStoredInitialState)
+            {
+                RestoreInitialState(ui.transform);
+                _hasStoredInitialState = false;
+                Debug.Log("Stopped preview and restored initial state.");
+            }
+            else
+            {
+                Debug.Log("Stopped preview.");
+            }
+
+
+            if (activePreviews.TryGetValue(ui, out var oldTween) && oldTween.IsActive()) oldTween.Kill();
             if (!_hasStoredInitialState)
             {
                 StoreInitialState(ui.transform);
@@ -66,13 +80,16 @@ public class BasePanelEditor : OdinEditor
             }
 
             DOTweenEditorPreview.Start();
-
-            Tween newTween = ui.TestMove();
+            ui.AddTweens(0); // Test
+            List<Tween> newTween = ui.Plots[0].tweens;
             if (newTween != null)
             {
-                DOTweenEditorPreview.PrepareTweenForPreview(newTween);
-                activePreviews[ui] = newTween;
-                Debug.Log("Started preview tween.");
+                foreach (var ele in newTween)
+                {
+                    DOTweenEditorPreview.PrepareTweenForPreview(ele);
+                    activePreviews[ui] = ele;
+                    Debug.Log("Play Tween :" + ele.ToString());    
+                }
             }
             else
             {
@@ -102,8 +119,8 @@ public class BasePanelEditor : OdinEditor
                 Debug.Log("Stopped preview.");
             }
         }
+        base.OnInspectorGUI();
     }
-
     private void StoreInitialState(Transform tr)
     {
         _initialPosition = tr.localPosition;

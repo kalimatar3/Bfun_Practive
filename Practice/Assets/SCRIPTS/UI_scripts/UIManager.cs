@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEditor;
+using System;
 
 namespace Clouds.Ultilities
 {
@@ -25,6 +26,8 @@ namespace Clouds.Ultilities
     {
 
         public EFFECT type;
+        [Range(0, 5)]
+        public float Delay;
         // Move
         [BoxGroup("Move Settings")]
         [PropertyOrder(1)]
@@ -316,27 +319,26 @@ namespace Clouds.Ultilities
     [System.Serializable]
     public class UIelementData
     {
+        [HideInInspector] public Vector3 realPos;
+        [HideInInspector] public Vector3 initPos;
+        [HideInInspector] public Vector3 initScale;
+        [HideInInspector] public float initFade;
+        [HideInInspector] public Transform initParent;
         [Range(0, 5)]
-        public float showDelay;
+        public float Delay;
         public GameObject UIElement;
         [EnumToggleButtons]
         public MULTIEFFECT multpleEffect;
         public EffectData startEffect;
-        [ShowIf("multpleEffect", MULTIEFFECT.Yes)]
-        public EffectData[] multpleStartEffect;
+        public List<Tween> Tween;
+
     }
 
     [System.Serializable]
     public class UIelement
     {
-        // [TitleGroup("UI GROUP :", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
-        //[GUIColor(0, 1, 1)]
-        public SignalType signalType;
+        public SignalType PlotType;
         public UIelementData[] UIS;
-        public Tween TestMove(Transform UI)
-        {
-            UI.DOKill();
-            return UI.DORotate(new Vector3(0, 0, 360), .5f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
-        }
+        public List<Tween> tweens = new List<Tween>();
     }
 }

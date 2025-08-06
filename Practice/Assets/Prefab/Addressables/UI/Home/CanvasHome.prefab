@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -35806
+  uniqueID: -23542
   lastInstanceID: 30020
 --- !u!114 &8893824742168577828
 MonoBehaviour:
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -35848
+  uniqueID: -23584
   lastInstanceID: 0
 --- !u!114 &3931336737382016374
 MonoBehaviour:
@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -35884
+  uniqueID: -23620
   lastInstanceID: 0
 --- !u!114 &6483825267418531737
 MonoBehaviour:
@@ -1316,7 +1316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360.00046, y: -300}
+  m_AnchoredPosition: {x: 360.0005, y: -300}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9066860894139858758
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -35834
+  uniqueID: -23570
   lastInstanceID: 0
 --- !u!114 &6334355063134828198
 MonoBehaviour:
@@ -1427,20 +1427,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bffaff96e2434248b7e8fb209e4984d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idComponent: {fileID: 0}
+  idComponent: {fileID: 259733853661629614}
   Plots:
-  - signalType: 3
+  - PlotType: 0
     UIS:
-    - showDelay: 0
-      UIElement: {fileID: 0}
-      multpleEffect: 0
+    - realPos: {x: 0, y: 0, z: 0}
+      initPos: {x: 0, y: 0, z: 0}
+      initScale: {x: 0, y: 0, z: 0}
+      initFade: 0
+      initParent: {fileID: 0}
+      Delay: 0
+      UIElement: {fileID: 8232102715325449154}
+      multpleEffect: 1
       startEffect:
-        Effect: []
+        Effect:
+        - type: 0
+          Delay: 1
+          moveType: 0
+          moveFrom: {fileID: 4338087970729504259}
+          timeMove: 0.2
+          moveActivate: 0
+          delayTimeMove: 0
+          easeMove: 1
+          loopMove: 0
+          loopCircleMove: 0
+          rotateTo: {x: 0, y: 360, z: 0}
+          timeRotate: 0
+          rotateActivate: 0
+          delayTimeRotate: 0
+          easeRotate: 1
+          loopRotate: 1
+          loopCircleRotate: 100
+          from: {x: 0, y: 0, z: 0}
+          scaleTo: {x: 0, y: 0, z: 0}
+          timeScale: 0
+          scaleActivate: 0
+          delayTimeScale: 0
+          easeScale: 0
+          loopScale: 0
+          loopCircleScale: 0
+          shakePosition: 0
+          shakeRotation: 0
+          shakeScale: 0
+          shakeStrength: 0
+          shakeVibrate: 0
+          shakeRandomness: 0
+          timeShake: 0
+          shakeActivate: 0
+          delayTimeShake: 0
+          easeShake: 0
+          loopShake: 0
+          loopCircleShake: 0
+          punchPostion: 0
+          punchRotation: 0
+          punchScale: 0
+          punchTo: {x: 0, y: 0}
+          punchVibrate: 0
+          punchElasticity: 0
+          timePunch: 0
+          punchActivate: 0
+          delayTimePunch: 0
+          easePunch: 0
+          loopPunch: 0
+          loopCirclePunch: 0
+          fadeTo: 0
+          timeFade: 0
+          fadeActivate: 0
+          delayTimeFade: 0
+          easeFade: 0
+          loopFade: 0
+          loopCircleFade: 0
+        - type: 1
+          Delay: 0
+          moveType: 0
+          moveFrom: {fileID: 9039930872557125708}
+          timeMove: 0.2
+          moveActivate: 0
+          delayTimeMove: 0
+          easeMove: 0
+          loopMove: 0
+          loopCircleMove: 0
+          rotateTo: {x: 0, y: 0, z: 360}
+          timeRotate: 0.5
+          rotateActivate: 0
+          delayTimeRotate: 0
+          easeRotate: 1
+          loopRotate: 1
+          loopCircleRotate: 200
+          from: {x: 0, y: 0, z: 0}
+          scaleTo: {x: 0, y: 0, z: 0}
+          timeScale: 0
+          scaleActivate: 0
+          delayTimeScale: 0
+          easeScale: 0
+          loopScale: 0
+          loopCircleScale: 0
+          shakePosition: 0
+          shakeRotation: 0
+          shakeScale: 0
+          shakeStrength: 0
+          shakeVibrate: 0
+          shakeRandomness: 0
+          timeShake: 0
+          shakeActivate: 0
+          delayTimeShake: 0
+          easeShake: 0
+          loopShake: 0
+          loopCircleShake: 0
+          punchPostion: 0
+          punchRotation: 0
+          punchScale: 0
+          punchTo: {x: 0, y: 0}
+          punchVibrate: 0
+          punchElasticity: 0
+          timePunch: 0
+          punchActivate: 0
+          delayTimePunch: 0
+          easePunch: 0
+          loopPunch: 0
+          loopCirclePunch: 0
+          fadeTo: 0
+          timeFade: 0
+          fadeActivate: 0
+          delayTimeFade: 0
+          easeFade: 0
+          loopFade: 0
+          loopCircleFade: 0
         image: {fileID: 0}
         rect: {fileID: 0}
-      multpleStartEffect: []
-  - signalType: 0
-    UIS: []
   buttons:
   - {fileID: 6483825267418531737}
   - {fileID: 926671870114560791}
@@ -1735,7 +1849,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8232102715325449154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.004245181, y: -6.658291e-11, z: -6.658291e-11, w: -0.999991}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1745,7 +1859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -200, y: 143.99924}
+  m_AnchoredPosition: {x: 0, y: 465}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6689692652177819341
@@ -1842,7 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79e0e55457db64c98a64351d553fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: -35862
+  uniqueID: -23598
   lastInstanceID: 0
 --- !u!114 &926671870114560791
 MonoBehaviour:
