@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Clouds.Ultilities;
 using UnityEngine;
 
 public class Signal
@@ -43,8 +44,10 @@ public class Signal
 [Serializable]
 public struct SignalMessage
 {
-    [SerializeField,HideInInspector] public int TARGETID;
-   [SerializeField,HideInInspector]  public int ROOTID;
-    public SignalType Type;
+    public UIBEHAVIOUR BEHAVIOUR;
+    [SerializeField, HideInInspector] public int TARGETID;
+    [SerializeField, HideInInspector] public int ROOTID;
+    public SignalName Type;
+    public object Value;
 }
-public enum SignalType { None,Refresh, Reset, FadeIn, FadeOut,Command1,Command2 }
+public enum SignalName { Command1,Command2,Command3 }

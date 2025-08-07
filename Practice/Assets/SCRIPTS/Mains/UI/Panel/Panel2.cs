@@ -8,22 +8,6 @@ public class Panel2 : Basepanel
     protected override void LoadUIComponents()
     {
     }
-    public override void UpdateVirtual(SignalMessage message)
-    {
-        RectTransform rect = this.GetComponent<RectTransform>();
-        rect.DOKill();
-        switch (message.Type)
-        {
-            case SignalType.Command1:
-                rect.DOMoveX(this.transform.position.x - 5, 1f).SetLoops(-1, LoopType.Yoyo);
-                break;
-            case SignalType.Command2:
-                rect.DORotate(new Vector3(0, 0,this.transform.rotation.eulerAngles.z -  360), 1f, RotateMode.FastBeyond360)
-                    .SetLoops(-1)
-                    .SetEase(Ease.Linear);
-                break;
-        }
-    }
     protected override List<Signal> Caller()
     {
         List<Signal> signals = new List<Signal>();
