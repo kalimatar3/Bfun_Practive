@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using DuckGame.Ultilities;
+using Clouds.Ultilities;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
@@ -27,8 +27,8 @@ public class CanvasBase : MonoBehaviour
 
     private void OnConnectedToServer()
     {
-        DuckHelper.SetRectBottom(mainScreen, 120);
-        DuckHelper.SetRectBottom(banner, Screen.height - 120);
+        // DuckHelper.SetRectBottom(mainScreen, 120);
+        // DuckHelper.SetRectBottom(banner, Screen.height - 120);
     }
 
     public void ShowCanvas(bool show, bool fade = true)
@@ -50,6 +50,6 @@ public class CanvasBase : MonoBehaviour
             canvasScaler.matchWidthOrHeight = 0.5625f;
         else// 4:3
             canvasScaler.matchWidthOrHeight = 0;
-        DuckHelper.LogGame("Set Screen Scale : " + canvasScaler.matchWidthOrHeight);
+        //DuckHelper.LogGame("Set Screen Scale : " + canvasScaler.matchWidthOrHeight);
     }
 }

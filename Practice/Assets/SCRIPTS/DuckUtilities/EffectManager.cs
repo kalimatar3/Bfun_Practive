@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DuckGame.Ultilities;
+using Clouds.Ultilities;
 
 public enum EFFECTTYPE {MoneyBlast, NitroBlast}
 public class EffectManager : Singleton<EffectManager>

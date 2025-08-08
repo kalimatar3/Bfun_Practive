@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using DuckGame.Ultilities;
+using Clouds.Ultilities;
 using UnityEngine;
 
 public class DuckButton : BaseClickyButton
 {
     public override void OnClick()
     {
+        PopupManager.Popup.ClosePopup(PopupHome.Main);
         PopupManager.Popup.ShowPopup(PopupHome.Select);
     }
 

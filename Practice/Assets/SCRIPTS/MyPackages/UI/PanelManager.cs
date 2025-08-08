@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DuckGame.Ultilities;
+using Clouds.Ultilities;
 public class PanelManager : Singleton<PanelManager>
 {
     [SerializeField] protected List<Basepanel> ListPanels;

@@ -44,10 +44,10 @@ public class Signal
 [Serializable]
 public struct SignalMessage
 {
-    public UIBEHAVIOUR BEHAVIOUR;
     [SerializeField, HideInInspector] public int TARGETID;
     [SerializeField, HideInInspector] public int ROOTID;
     public SignalName Type;
     public object Value;
 }
-public enum SignalName { Command1,Command2,Command3 }
+public enum SignalName { 
+    Command1,Command2,Command3,OnEnable,OnDisable,Player,Player2,Player3}

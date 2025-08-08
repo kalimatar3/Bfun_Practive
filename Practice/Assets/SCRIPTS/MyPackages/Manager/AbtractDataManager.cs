@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using DuckGame.Ultilities;
+using Clouds.Ultilities;
 using UnityEngine;
 
 public abstract class AbtractDataManager<T> : Singleton<AbtractDataManager<T>> where T : AbtractDataManager<T>

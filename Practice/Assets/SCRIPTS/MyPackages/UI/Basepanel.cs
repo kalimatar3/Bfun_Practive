@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Clouds.Ultilities;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 public abstract class Basepanel : baseUI
 {
+    public Signal EnableSignal = new Signal()
+    , DisableSignal = new Signal();
     public SerializableDictionary<SignalName, UIGroup> UIGroupDics = new SerializableDictionary<SignalName, UIGroup>();
     protected override void Awake()
     {
@@ -23,8 +27,16 @@ public abstract class Basepanel : baseUI
         foreach (var ele in Element.tweens)
         {
             if (ele.IsPlaying() || ele.IsComplete()) ele.Restart();
-            else ele.Play(); 
+            else ele.Play();
         }
+    }
+    protected override List<Signal> Caller()
+    {
+        return new List<Signal>()
+        {
+            EnableSignal,
+            DisableSignal
+        };
     }
     public override void UpdateVirtual(SignalMessage message)
     {
@@ -33,12 +45,21 @@ public abstract class Basepanel : baseUI
     }
     public void PlayContinous(SignalMessage signalMessage)
     {
+        if (!UIGroupDics.ContainsKey(signalMessage.Type)) return;
         UIGroup uIGroup = UIGroupDics[signalMessage.Type];
         foreach (var UIelement in uIGroup.UIS)
         {
             foreach (var ele in UIelement.ConEffects)
             {
-                if(ele.type == CONTINUOSEFFECT.FillText) UIUtility.FillText(ele,(string)signalMessage.Value);
+                switch (ele.type)
+                {
+                    case CONTINUOSEFFECT.FillText:
+                        UIUtility.FillText(ele, (string)signalMessage.Value);
+                        break;
+                    case CONTINUOSEFFECT.ChangeOpacity:
+                        UIUtility.ChangeOpacity(ele, (float)signalMessage.Value);
+                        break;
+                }            
             }
         }
     }
@@ -99,6 +120,4 @@ public abstract class Basepanel : baseUI
             }
         }
     }
-
-    //  public void 
 }

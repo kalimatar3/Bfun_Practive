@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
 public class GameDatas
 {

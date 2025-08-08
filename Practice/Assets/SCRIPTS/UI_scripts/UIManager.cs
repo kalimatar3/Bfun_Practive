@@ -21,7 +21,8 @@ namespace Clouds.Ultilities
     }
     public enum CONTINUOSEFFECT
     {
-        FillText
+        FillText,
+        ChangeOpacity,
     }
     public enum ACTIVATETYPE { Sequence, Delay, Continuously }
     public enum SOUNDTRIGGER { None, Same, Seperate }
@@ -324,6 +325,10 @@ namespace Clouds.Ultilities
         public string Text;
         [ShowIf("type", CONTINUOSEFFECT.FillText)]
         public TextMeshProUGUI TextComponent;
+        [ShowIf("type", CONTINUOSEFFECT.ChangeOpacity)]
+        public Image Image;
+        [ShowIf("type", CONTINUOSEFFECT.ChangeOpacity)]
+        public float Opacity;
     }
 
     [System.Serializable]
@@ -337,7 +342,8 @@ namespace Clouds.Ultilities
         public UIBEHAVIOUR BEHAVIOUR;
         [Range(0, 5)]
         public float Delay;
-        public GameObject UIObj;
+        public bool ignoreTimeScale;
+         [ShowIf("BEHAVIOUR", UIBEHAVIOUR.TRIGGER)] public GameObject UIObj;
         [EnumToggleButtons]
         [ShowIf("BEHAVIOUR", UIBEHAVIOUR.TRIGGER)]
         public List<UIEffectData> Effect;
@@ -348,7 +354,6 @@ namespace Clouds.Ultilities
     [System.Serializable]
     public class UIGroup
     {
-        public SignalName PlotType;
         public UIelement[] UIS;
         public List<Tween> tweens = new List<Tween>();
     }

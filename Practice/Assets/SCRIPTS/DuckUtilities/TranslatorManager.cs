@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 using TMPro;
 using System.Linq;
 
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
     public enum LANGUAGE{ English , Arabic, French, Spanish, Portuguese, Hindi, Indonesian, Filipino, Turkish, Thai, Malay, Japanese, Vietnamese}
 

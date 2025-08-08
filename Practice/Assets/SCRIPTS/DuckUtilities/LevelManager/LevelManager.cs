@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DuckGame.Ultilities;
-using UnityEngine;
+using Clouds.Ultilities;
 
 public class LevelManager : Singleton<LevelManager>
 {

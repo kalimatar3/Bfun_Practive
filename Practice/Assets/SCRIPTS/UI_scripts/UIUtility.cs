@@ -12,6 +12,14 @@ public static class UIUtility
         if(Application.isPlaying) effect.Text = text;
 #endif        
     }
+    public static void ChangeOpacity(UIContinousEffectdata effect, float opa) {
+        Color color = effect.Image.color;
+        color.a = opa;
+        effect.Image.color = color;
+#if UNITY_EDITOR
+        if(Application.isPlaying) effect.Opacity = opa;
+#endif        
+    }
     public static Tween DoMoveCustom(UIEffectData effect, float time, RectTransform rect, UIelement data, Ease ease, RectTransform moveFrom, bool loop, bool ignoreTimeScale)
     {
         Vector2 initpos = data.UIObj.transform.localPosition;

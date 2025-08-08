@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
     public enum MyScene
     {

@@ -118,6 +118,12 @@ public class BasePanelEditor : OdinEditor
                 {
                     ele.TextComponent.text = ele.Text;
                 }
+                else if (ele.type == CONTINUOSEFFECT.ChangeOpacity)
+                {
+                    Color color = ele.Image.color;
+                    color.a = ele.Opacity;
+                    ele.Image.color = color;
+                }
             } 
         }
     }

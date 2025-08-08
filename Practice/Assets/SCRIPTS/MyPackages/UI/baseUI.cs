@@ -19,11 +19,11 @@ public abstract class baseUI : MyBehaviour
     protected abstract List<Signal> Caller();
     protected override void Awake()
     {
-        this.callers = Caller();
         base.Awake();
         if (idComponent == null)
             idComponent = GetComponent<UniqueIDComponent>();
     }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -58,6 +58,7 @@ public abstract class baseUI : MyBehaviour
     }
     protected virtual void OnEnable()
     {
+        this.callers = Caller();
         this.SubscribeUpdateVirtualAcion();
     }
     protected virtual void OnDisable()

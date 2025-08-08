@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

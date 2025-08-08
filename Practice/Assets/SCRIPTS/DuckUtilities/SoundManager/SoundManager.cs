@@ -10,7 +10,7 @@ using UnityEditor;
 using DG.Tweening;
 using Unity.VisualScripting;
 
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
     public enum AudioType{ Sound, Music}
 

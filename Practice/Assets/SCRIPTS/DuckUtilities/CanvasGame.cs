@@ -45,14 +45,14 @@ public class CanvasGame : CanvasBase
     }
     public void NoticeMission(string message)
     {
-        PopupManager.Popup.ShowPopup(PopupGame.Notify);
-        this.MissionNotice.message = message;
-        if (DelayCloseMissionNotifyCr != null) StopCoroutine(DelayCloseMissionNotifyCr);
-        DelayCloseMissionNotifyCr = StartCoroutine(IDelayCloseMissionNotify());
+        // PopupManager.Popup.ShowPopup(PopupGame.Notify);
+        // this.MissionNotice.message = message;
+        // if (DelayCloseMissionNotifyCr != null) StopCoroutine(DelayCloseMissionNotifyCr);
+        // DelayCloseMissionNotifyCr = StartCoroutine(IDelayCloseMissionNotify());
     }
     protected IEnumerator IDelayCloseMissionNotify()
     {
         yield return new WaitForSeconds(1f);
-        PopupManager.Popup.ClosePopup(PopupGame.Notify);
+       // PopupManager.Popup.ClosePopup(PopupGame.Notify);
     }
 }

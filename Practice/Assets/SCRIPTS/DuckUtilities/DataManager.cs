@@ -90,7 +90,7 @@ public struct AllChapter
     public ChapterData[] racingChapter;
 }
 
-namespace DuckGame.Ultilities
+namespace Clouds.Ultilities
 {
     [HideMonoScript]
     public class DataManager : Singleton<DataManager>
